@@ -30,6 +30,8 @@ export namespace Components {
     }
     interface AppServiceList {
     }
+    interface TrsFilerComponent {
+    }
     interface WcElixirService {
     }
     interface WcElixirUtilsCreatePermission {
@@ -122,6 +124,12 @@ declare global {
         prototype: HTMLAppServiceListElement;
         new (): HTMLAppServiceListElement;
     };
+    interface HTMLTrsFilerComponentElement extends Components.TrsFilerComponent, HTMLStencilElement {
+    }
+    var HTMLTrsFilerComponentElement: {
+        prototype: HTMLTrsFilerComponentElement;
+        new (): HTMLTrsFilerComponentElement;
+    };
     interface HTMLWcElixirServiceElement extends Components.WcElixirService, HTMLStencilElement {
     }
     var HTMLWcElixirServiceElement: {
@@ -165,6 +173,7 @@ declare global {
         "app-new-service": HTMLAppNewServiceElement;
         "app-service-component": HTMLAppServiceComponentElement;
         "app-service-list": HTMLAppServiceListElement;
+        "trs-filer-component": HTMLTrsFilerComponentElement;
         "wc-elixir-service": HTMLWcElixirServiceElement;
         "wc-elixir-utils-create-permission": HTMLWcElixirUtilsCreatePermissionElement;
         "wc-elixir-utils-manage-permissions": HTMLWcElixirUtilsManagePermissionsElement;
@@ -197,6 +206,8 @@ declare namespace LocalJSX {
     }
     interface AppServiceList {
     }
+    interface TrsFilerComponent {
+    }
     interface WcElixirService {
     }
     interface WcElixirUtilsCreatePermission {
@@ -228,6 +239,7 @@ declare namespace LocalJSX {
         "app-new-service": AppNewService;
         "app-service-component": AppServiceComponent;
         "app-service-list": AppServiceList;
+        "trs-filer-component": TrsFilerComponent;
         "wc-elixir-service": WcElixirService;
         "wc-elixir-utils-create-permission": WcElixirUtilsCreatePermission;
         "wc-elixir-utils-manage-permissions": WcElixirUtilsManagePermissions;
@@ -251,6 +263,7 @@ declare module "@stencil/core" {
             "app-new-service": LocalJSX.AppNewService & JSXBase.HTMLAttributes<HTMLAppNewServiceElement>;
             "app-service-component": LocalJSX.AppServiceComponent & JSXBase.HTMLAttributes<HTMLAppServiceComponentElement>;
             "app-service-list": LocalJSX.AppServiceList & JSXBase.HTMLAttributes<HTMLAppServiceListElement>;
+            "trs-filer-component": LocalJSX.TrsFilerComponent & JSXBase.HTMLAttributes<HTMLTrsFilerComponentElement>;
             "wc-elixir-service": LocalJSX.WcElixirService & JSXBase.HTMLAttributes<HTMLWcElixirServiceElement>;
             "wc-elixir-utils-create-permission": LocalJSX.WcElixirUtilsCreatePermission & JSXBase.HTMLAttributes<HTMLWcElixirUtilsCreatePermissionElement>;
             "wc-elixir-utils-manage-permissions": LocalJSX.WcElixirUtilsManagePermissions & JSXBase.HTMLAttributes<HTMLWcElixirUtilsManagePermissionsElement>;

@@ -5450,6 +5450,8 @@ const cmpModules = new Map, getModule = e => {
 
 const elixirBackend = "https://stormy-hamlet-10250.herokuapp.com";
 
+const trsFilerBackend = "https://trs-filer-test.rahtiapp.fi/ga4gh/trs/v2";
+
 var bind = function bind(fn, thisArg) {
   return function wrap() {
     var args = new Array(arguments.length);
@@ -6693,54 +6695,38 @@ var mergeConfig = function mergeConfig(config1, config2) {
   return config;
 };
 
-const _args = [
-	[
-		"axios@0.21.2",
-		"/Users/anurag/Desktop/web-components"
-	]
+const name = "axios";
+const version = "0.21.2";
+const description = "Promise based HTTP client for the browser and node.js";
+const main = "index.js";
+const scripts = {
+	test: "grunt test",
+	start: "node ./sandbox/server.js",
+	build: "NODE_ENV=production grunt build",
+	preversion: "npm test",
+	version: "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+	postversion: "git push && git push --tags",
+	examples: "node ./examples/server.js",
+	coveralls: "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+	fix: "eslint --fix lib/**/*.js"
+};
+const repository = {
+	type: "git",
+	url: "https://github.com/axios/axios.git"
+};
+const keywords = [
+	"xhr",
+	"http",
+	"ajax",
+	"promise",
+	"node"
 ];
-const _from = "axios@0.21.2";
-const _id = "axios@0.21.2";
-const _inBundle = false;
-const _integrity = "sha512-87otirqUw3e8CzHTMO+/9kh/FSgXt/eVDvipijwDtEuwbkySWZ9SBm6VEubmJ/kLKEoLQV/POhxXFb66bfekfg==";
-const _location = "/axios";
-const _phantomChildren = {
-};
-const _requested = {
-	type: "version",
-	registry: true,
-	raw: "axios@0.21.2",
-	name: "axios",
-	escapedName: "axios",
-	rawSpec: "0.21.2",
-	saveSpec: null,
-	fetchSpec: "0.21.2"
-};
-const _requiredBy = [
-	"/"
-];
-const _resolved = "https://registry.npmjs.org/axios/-/axios-0.21.2.tgz";
-const _spec = "0.21.2";
-const _where = "/Users/anurag/Desktop/web-components";
-const author = {
-	name: "Matt Zabriskie"
-};
-const browser = {
-	"./lib/adapters/http.js": "./lib/adapters/xhr.js"
-};
+const author = "Matt Zabriskie";
+const license = "MIT";
 const bugs = {
 	url: "https://github.com/axios/axios/issues"
 };
-const bundlesize = [
-	{
-		path: "./dist/axios.min.js",
-		threshold: "5kB"
-	}
-];
-const dependencies = {
-	"follow-redirects": "^1.14.0"
-};
-const description = "Promise based HTTP client for the browser and node.js";
+const homepage = "https://axios-http.com";
 const devDependencies = {
 	coveralls: "^3.0.0",
 	"es6-promise": "^4.2.4",
@@ -6776,67 +6762,40 @@ const devDependencies = {
 	webpack: "^4.44.2",
 	"webpack-dev-server": "^3.11.0"
 };
-const homepage = "https://axios-http.com";
+const browser = {
+	"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+};
 const jsdelivr = "dist/axios.min.js";
-const keywords = [
-	"xhr",
-	"http",
-	"ajax",
-	"promise",
-	"node"
-];
-const license = "MIT";
-const main = "index.js";
-const name = "axios";
-const repository = {
-	type: "git",
-	url: "git+https://github.com/axios/axios.git"
-};
-const scripts = {
-	build: "NODE_ENV=production grunt build",
-	coveralls: "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-	examples: "node ./examples/server.js",
-	fix: "eslint --fix lib/**/*.js",
-	postversion: "git push && git push --tags",
-	preversion: "npm test",
-	start: "node ./sandbox/server.js",
-	test: "grunt test",
-	version: "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"
-};
-const typings = "./index.d.ts";
 const unpkg = "dist/axios.min.js";
-const version = "0.21.2";
+const typings = "./index.d.ts";
+const dependencies = {
+	"follow-redirects": "^1.14.0"
+};
+const bundlesize = [
+	{
+		path: "./dist/axios.min.js",
+		threshold: "5kB"
+	}
+];
 var pkg = {
-	_args: _args,
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_spec: _spec,
-	_where: _where,
-	author: author,
-	browser: browser,
-	bugs: bugs,
-	bundlesize: bundlesize,
-	dependencies: dependencies,
-	description: description,
-	devDependencies: devDependencies,
-	homepage: homepage,
-	jsdelivr: jsdelivr,
-	keywords: keywords,
-	license: license,
-	main: main,
 	name: name,
-	repository: repository,
+	version: version,
+	description: description,
+	main: main,
 	scripts: scripts,
-	typings: typings,
+	repository: repository,
+	keywords: keywords,
+	author: author,
+	license: license,
+	bugs: bugs,
+	homepage: homepage,
+	devDependencies: devDependencies,
+	browser: browser,
+	jsdelivr: jsdelivr,
 	unpkg: unpkg,
-	version: version
+	typings: typings,
+	dependencies: dependencies,
+	bundlesize: bundlesize
 };
 
 var validators$1 = {};
@@ -7795,6 +7754,8 @@ class AppDocs {
           return hAsync("app-service-list", null);
         case "/docs/components/manage-permission":
           return hAsync("app-manage-permission", null);
+        case "/docs/components/trs-filer-component":
+          return hAsync("trs-filer-component", null);
         case "/docs/components/add-new-service":
           return hAsync("app-new-service", null);
         case "/docs/components/create-permission":
@@ -8148,6 +8109,121 @@ class AppServiceList {
     "$tagName$": "app-service-list",
     "$members$": {
       "data": [32]
+    },
+    "$listeners$": undefined,
+    "$lazyBundleId$": "-",
+    "$attrsToReflect$": []
+  }; }
+}
+
+const trsFilerComponentCss = ".sc-trs-filer-component-h{display:block}";
+
+class TRSFilerComponent {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
+    this.tools = [];
+  }
+  componentDidLoad() {
+    this.fetchTools();
+  }
+  async fetchTools() {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools`);
+      this.tools = response.data;
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchVersions(toolId) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchVersion(toolId, versionId) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions/${versionId}`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchToolDescriptor(toolId, versionId, type) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions/${versionId}/${type}/descriptor`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchAdditionalToolDescriptor(toolId, versionId, type, relativePath) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions/${versionId}/${type}/descriptor/${relativePath}`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchTests(toolId, versionId, type) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions/${versionId}/${type}/tests`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchFiles(toolId, versionId, type) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions/${versionId}/${type}/files`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchContainerSpecification(toolId, versionId) {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions/${versionId}/containerfile`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  async fetchToolClasses() {
+    try {
+      const response = await axios.get(`${trsFilerBackend}/toolClasses`);
+      console.log(response.data);
+      // TODO: handle the response data
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  render() {
+    return (hAsync("div", null));
+  }
+  static get style() { return trsFilerComponentCss; }
+  static get cmpMeta() { return {
+    "$flags$": 2,
+    "$tagName$": "trs-filer-component",
+    "$members$": {
+      "tools": [32]
     },
     "$listeners$": undefined,
     "$lazyBundleId$": "-",
@@ -9031,6 +9107,7 @@ registerComponents([
   AppNewService,
   AppServiceComponent,
   AppServiceList,
+  TRSFilerComponent,
   WcElixirService,
   WcElixirUtilsCreatePermission,
   WcElixirUtilsManagePermissions,

@@ -21,6 +21,8 @@ export class AppDocs {
         return <app-service-list></app-service-list>;
       case "/docs/components/manage-permission":
         return <app-manage-permission></app-manage-permission>;
+      case "/docs/components/trs-filer-component":
+        return <trs-filer-component></trs-filer-component>
       case "/docs/components/add-new-service":
         return <app-new-service></app-new-service>;
       case "/docs/components/create-permission":
