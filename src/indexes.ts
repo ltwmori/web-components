@@ -41,6 +41,10 @@ const indexes: indexType[] = [
         display: "Create Permission",
         url: "/docs/components/create-permission",
       },
+      {
+        display: "TRS Filer Component",
+        url: "/docs/components/trs-filer-component",
+      },
     ],
   },
 ];

@@ -7870,6 +7870,10 @@ const indexes = [
         display: "Create Permission",
         url: "/docs/components/create-permission",
       },
+      {
+        display: "TRS Filer Component",
+        url: "/docs/components/trs-filer-component",
+      },
     ],
   },
 ];
@@ -8124,17 +8128,21 @@ class TRSFilerComponent {
     this.tools = [];
   }
   componentDidLoad() {
-    this.fetchTools();
-  }
-  async fetchTools() {
-    try {
-      const response = await axios.get(`${trsFilerBackend}/tools`);
+    // this.fetchTools();
+    axios
+      .get(`${trsFilerBackend}/tools`)
+      .then((response) => {
       this.tools = response.data;
-    }
-    catch (error) {
-      console.error(error);
-    }
+    });
   }
+  // async fetchTools() {
+  //   try {
+  //     const response = await axios.get(`${trsFilerBackend}/tools`);
+  //     this.tools = response.data;
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
   async fetchVersions(toolId) {
     try {
       const response = await axios.get(`${trsFilerBackend}/tools/${toolId}/versions`);
@@ -8216,7 +8224,10 @@ class TRSFilerComponent {
     }
   }
   render() {
-    return (hAsync("div", null));
+    return (hAsync(Host, null, hAsync("div", { class: "leading-relaxed my-3 tracking-wide dark:text-gray-200 text-3xl font-bold" }, "TRS Filer Component"), hAsync("div", { class: "my-3" }, hAsync("div", { class: "border-gray-100 rounded-lg p-3 border shadow-md my-5" }, hAsync("div", { class: "text-sm font-semibold w-full border-b-2 border-gray-100 pb-2" }, "Component Demo"), hAsync("div", { class: "mt-4" }, hAsync("wc-elixir-service", null))), this.tools.length === 0
+      ? renderLoaderGetStarted()
+      : //@ts-ignore
+        renderContent(this.tools))));
   }
   static get style() { return trsFilerComponentCss; }
   static get cmpMeta() { return {
