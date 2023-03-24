@@ -71,7 +71,9 @@ export class WcElixirUtilsServiceList {
             >
               <div class={`title text-lg font-semibold`}>{service.name}</div>
               <div class="mt-0.5">
-                <span class="text-xs italic font-extralight mr-2">{service.type}</span>
+                <span class="text-xs italic font-extralight mr-2">
+                  {service.type}
+                </span>
                 {this.serviceIsOpen[index] ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +104,9 @@ export class WcElixirUtilsServiceList {
               </div>
             </div>
             <div
-              class={`wc-service-index-${index} ${this.serviceIsOpen[index] ? "" : "hidden"} pt-2`}
+              class={`wc-service-index-${index} ${
+                this.serviceIsOpen[index] ? "" : "hidden"
+              } pt-2`}
             >
               <a
                 href={service.documentationUrl}
@@ -116,11 +120,17 @@ export class WcElixirUtilsServiceList {
               <br></br>
               <div>
                 <div class="">
-                  <span class="">Service Id:</span> <span class="font-mono">{service.id}</span>
+                  <span class="">Service Id:</span>{" "}
+                  <span class="font-mono">{service.id}</span>
                 </div>
                 <div class="text-base">
-                  <span class="">Organization:</span> {service.organization.name}{" "}
-                  <a href={service.organization.url} target="_blank" rel="noopener noreferrer">
+                  <span class="">Organization:</span>{" "}
+                  {service.organization.name}{" "}
+                  <a
+                    href={service.organization.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 mb-1 ml-2 text-primary inline"
@@ -136,7 +146,11 @@ export class WcElixirUtilsServiceList {
                       />
                     </svg>
                   </a>
-                  <a href={service.contactUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={service.contactUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 mb-1 ml-1.5 text-primary inline"
@@ -154,7 +168,8 @@ export class WcElixirUtilsServiceList {
                   </a>
                 </div>
                 <div class="text-base">
-                  <span class="">Version:</span> <span class="font-mono">{service.version}</span>
+                  <span class="">Version:</span>{" "}
+                  <span class="font-mono">{service.version}</span>
                 </div>
               </div>
               <br></br>
@@ -167,7 +182,12 @@ export class WcElixirUtilsServiceList {
                       </button>
                       <button
                         class="bg-secondary rounded-lg px-4 py-2 md:mr-2 my-2 text-white hover:shadow-lg focus:outline-none w-full md:w-auto"
-                        onClick={() => this.handleShowManagePermission(service.id, service.name)}
+                        onClick={() =>
+                          this.handleShowManagePermission(
+                            service.id,
+                            service.name
+                          )
+                        }
                       >
                         Manage Permission
                       </button>
@@ -189,7 +209,9 @@ export class WcElixirUtilsServiceList {
                       } rounded-lg px-4 py-2 md:mx-2 my-2 text-white hover:shadow-lg focus:outline-none w-full md:w-auto`}
                       onClick={() => this.toggleAuth(service.id)}
                     >
-                      {service.authorized ? "Revoke Authorization" : "Grant Authorization"}
+                      {service.authorized
+                        ? "Revoke Authorization"
+                        : "Grant Authorization"}
                     </button>
                   </div>
                 </div>

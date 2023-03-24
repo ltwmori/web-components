@@ -31,6 +31,7 @@ export namespace Components {
     interface AppServiceList {
     }
     interface TrsFilerComponent {
+        "itemsPerPage"?: number;
     }
     interface WcElixirService {
     }
@@ -49,11 +50,6 @@ export namespace Components {
         "authToken": string;
         "handleShowManagePermission": any;
         "itemsPerPage"?: number;
-    }
-    interface WcElixirUtilsTrsFilerComponent {
-        "apiUrl": string;
-        "authToken": string;
-        "schema": string;
     }
 }
 declare global {
@@ -165,12 +161,6 @@ declare global {
         prototype: HTMLWcElixirUtilsServiceListElement;
         new (): HTMLWcElixirUtilsServiceListElement;
     };
-    interface HTMLWcElixirUtilsTrsFilerComponentElement extends Components.WcElixirUtilsTrsFilerComponent, HTMLStencilElement {
-    }
-    var HTMLWcElixirUtilsTrsFilerComponentElement: {
-        prototype: HTMLWcElixirUtilsTrsFilerComponentElement;
-        new (): HTMLWcElixirUtilsTrsFilerComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "app-community": HTMLAppCommunityElement;
         "app-contribute": HTMLAppContributeElement;
@@ -218,6 +208,7 @@ declare namespace LocalJSX {
     interface AppServiceList {
     }
     interface TrsFilerComponent {
+        "itemsPerPage"?: number;
     }
     interface WcElixirService {
     }
@@ -236,11 +227,6 @@ declare namespace LocalJSX {
         "authToken"?: string;
         "handleShowManagePermission"?: any;
         "itemsPerPage"?: number;
-    }
-    interface WcElixirUtilsTrsFilerComponent {
-        "apiUrl"?: string;
-        "authToken"?: string;
-        "schema"?: string;
     }
     interface IntrinsicElements {
         "app-community": AppCommunity;

@@ -15,6 +15,7 @@ export class AppServiceList {
     axios
       .get(`${elixirBackend}/wc/docs/2%20Service%20List%20Component`)
       .then((response) => {
+        console.log(response);
         this.data = response.data;
       });
   }
